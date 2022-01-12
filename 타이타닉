@@ -1,7 +1,29 @@
-titanic.describe()
-tintanic.dropna().describe() # dropna 누락값 제거
-titanic.var() #수치값이 얼마나 가지는지
+df.describe()
+df.dropna().describe() # dropna 누락값 제거
+df.var() #수치값이 얼마나 가지는지
 
-titanic.grouby('class').count() # 클래스별로 몇 명이 탔는지
+df.grouby('class').count() # 클래스별로 몇 명이 탔는지
 sns.countplot(y='class',data=titanic);
 
+#df.groupby(['sex','survived'])['survived'].count()
+#sns.barplot(x='sex',y='survived',data=df)
+
+df.groupby('class')['age'].describe()
+
+df.groupby(['class','sex'])['age'].mean().unstack()
+
+sns.catplot(x='sex',y='age',
+  hue='class',kind='bar',data=df)
+  
+df.plvot_table('survived',index= 'class',columns='sex')
+sns.catlpot(x='class',y='survived',hue='sex',kind='bar',data=df);
+
+age = pd.cut(df['age'],[0,18,40,80])
+df.pivlot_tavble('survived',['sex',age],'class')
+
+
+
+
+
+
+  
