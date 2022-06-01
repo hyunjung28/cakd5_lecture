@@ -1,8 +1,0 @@
-import numpy as np
-x= np.array([1,2,0,0,4,0])
-print(np.nonzero(x))
-
-https://hun931018.tistory.com/18
-
-array = np.linspace(1, 100, 3)  #일정한 간격으로 데이터 생성
-array 
