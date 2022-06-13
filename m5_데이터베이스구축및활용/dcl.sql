@@ -1,24 +1,24 @@
 --DCL
---»ç¿ëÀÚ »ý¼º
+--ì‚¬ìš©ìž ìƒì„±
 CREATE USER C##TEST1
 IDENTIFIED BY TEST1
 DEFAULT TABLESPACE USERS
 TEMPORARY TABLESPACE TEMP;
 
---±ÇÇÑ ºÎ¿©
+--ê¶Œí•œ ë¶€ì—¬
 GRANT CONNECT, RESOURCE TO C##TEST1;
 GRANT CREATE VIEW, CREATE SYNONYM TO C##TEST1;
 GRANT UNLIMITED TABLESPACE TO C##TEST1;
 
---±ÇÇÑ È¸¼ö
+--ê¶Œí•œ íšŒìˆ˜
 REVOKE CONNECT, RESOURCE FROM C##TEST1;
 REVOKE CREATE VIEW, CREATE SYNONYM FROM C##TEST1;
 REVOKE UNLIMITED TABLESPACE FROM C##TEST1;
 
---»ç¿ëÀÚ »èÁ¦
+--ì‚¬ìš©ìž ì‚­ì œ
 DROP USER C##TEST1;
 
---»ç¿ëÀÚ »ý¼º, Tablespace ÁöÁ¤ ¹× ±ÇÇÑºÎ¿©¸¦ ÀÏ°ý ¼öÇà
+--ì‚¬ìš©ìž ìƒì„±, Tablespace ì§€ì • ë° ê¶Œí•œë¶€ì—¬ë¥¼ ì¼ê´„ ìˆ˜í–‰
 CREATE USER C##JADE
 IDENTIFIED BY JADE
 DEFAULT TABLESPACE USERS
@@ -28,18 +28,18 @@ GRANT CREATE VIEW, CREATE SYNONYM TO C##JADE;
 GRANT UNLIMITED TABLESPACE TO C##JADE;
 ALTER USER C##JADE ACCOUNT UNLOCK;
 
---»ç¿ëÀÚ ¾ÏÈ£ º¯°æ
+--ì‚¬ìš©ìž ì•”í˜¸ ë³€ê²½
 ALTER USER C##JADE
 IDENTIFIED BY JADE1;
 
---»ç¿ëÀÚ »èÁ¦
---CASCADE¸¦ »ç¿ëÇÏ¸é »ç¿ëÀÚ ÀÌ¸§°ú °ü·ÃµÈ ¸ðµç µ¥ÀÌÅÍº£ÀÌ½º ½ºÅ°¸¶°¡ µ¥ÀÌÅÍ »çÀüÀ¸·Î ºÎÅÍ »èÁ¦
+--ì‚¬ìš©ìž ì‚­ì œ
+--CASCADEë¥¼ ì‚¬ìš©í•˜ë©´ ì‚¬ìš©ìž ì´ë¦„ê³¼ ê´€ë ¨ëœ ëª¨ë“  ë°ì´í„°ë² ì´ìŠ¤ ìŠ¤í‚¤ë§ˆê°€ ë°ì´í„° ì‚¬ì „ìœ¼ë¡œ ë¶€í„° ì‚­ì œ
 DROP USER C##JADE CASCADE;
 
---Æ®·£Àè¼Ç
---SAVEPOINT ÀÌ¸§ : ÇöÀç±îÁöÀÇ Æ®·£Àè¼ÇÀ» Æ¯Á¤ ÀÌ¸§À¸·Î ÁöÁ¤ÇÏ´Â ¸í·É
---ROLLBACK TO ÀÌ¸§ : ÀúÀåµÇÁö ¾ÊÀº µ¥ÀÌÅÍ¸¦ ¸ðµÎ Ãë¼ÒÇÏ°í Æ®·£Àè¼ÇÀ» Á¾·á
---COMMIT : ÀúÀåµÇÁö ¾ÊÀº ¸ðµç Á¦ÀÌÅÍº£ÀÌ½º¸¦ ÀúÀåÇÏ°í ÇöÀçÀÇ Æ®·£Àè¼ÇÀ» Á¾·á
+--íŠ¸ëžœìž­ì…˜
+--SAVEPOINT ì´ë¦„ : í˜„ìž¬ê¹Œì§€ì˜ íŠ¸ëžœìž­ì…˜ì„ íŠ¹ì • ì´ë¦„ìœ¼ë¡œ ì§€ì •í•˜ëŠ” ëª…ë ¹
+--ROLLBACK TO ì´ë¦„ : ì €ìž¥ë˜ì§€ ì•Šì€ ë°ì´í„°ë¥¼ ëª¨ë‘ ì·¨ì†Œí•˜ê³  íŠ¸ëžœìž­ì…˜ì„ ì¢…ë£Œ
+--COMMIT : ì €ìž¥ë˜ì§€ ì•Šì€ ëª¨ë“  ì œì´í„°ë² ì´ìŠ¤ë¥¼ ì €ìž¥í•˜ê³  í˜„ìž¬ì˜ íŠ¸ëžœìž­ì…˜ì„ ì¢…ë£Œ
 
 SELECT * FROM member1;
 TRUNCATE TABLE member1;
