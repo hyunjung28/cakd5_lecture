@@ -7,6 +7,6 @@ K-Digital Training
 세부 내용 :
 https://www.choongang.co.kr/html/sub03_07_n.php
 
-
+수업 과정의 내용 업로드 및 복습용 자료
 
 
